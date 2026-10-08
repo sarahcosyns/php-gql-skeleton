@@ -15,6 +15,6 @@ class RepositoriesFactory
   public function __construct(QueryBuilder $database, PromiseAdapterInterface $dataLoaderPromiseAdapter)
   {
     $this->unitType = new UnitTypeRepository($database, $dataLoaderPromiseAdapter);
-    $this->collaborator = new CollaboratorRepository($database);
+    $this->collaborator = new CollaboratorRepository($database, $dataLoaderPromiseAdapter);
   }
 }
