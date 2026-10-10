@@ -8,19 +8,19 @@ use Vertuoza\Repositories\RepositoriesFactory;
 
 class CollaboratorsFindManyUseCase
 {
-    private UserRequestContext $userContext;
-    private CollaboratorRepository $collaboratorRepository;
+  private UserRequestContext $userContext;
+  private CollaboratorRepository $collaboratorRepository;
 
-    public function __construct(
-        RepositoriesFactory $repositories,
-        UserRequestContext $userContext,
-    ) {
-        $this->collaboratorRepository = $repositories->collaborator;
-        $this->userContext = $userContext;
-    }
+  public function __construct(
+    RepositoriesFactory $repositories,
+    UserRequestContext $userContext,
+  ) {
+    $this->collaboratorRepository = $repositories->collaborator;
+    $this->userContext = $userContext;
+  }
 
-    public function handle()
-    {
-        return $this->collaboratorRepository->findMany($this->userContext->getTenantId());
-    }
+  public function handle()
+  {
+    return $this->collaboratorRepository->findMany($this->userContext->getTenantId());
+  }
 }
